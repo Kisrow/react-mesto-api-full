@@ -1,0 +1,12 @@
+.feed {
+  max-width: 880px;
+  margin: auto;
+  color: #fff;
+  position: relative;
+}
+
+@media screen and (max-width: 880px) {
+  .feed {
+    max-width: 605px;
+  }
+}

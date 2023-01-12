@@ -1,0 +1,25 @@
+.profile__editor {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../images/profile-editor.svg);
+  background-color: #000;
+  background-size: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  align-self: center;
+  border: 1px solid #fff;
+}
+
+.profile__editor:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 530px) {
+  .profile__editor{
+    align-self: end;
+    margin-bottom: 6px;
+    width: 18px;
+    height: 18px;
+  }
+}
