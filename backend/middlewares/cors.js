@@ -2,6 +2,7 @@ const allowedCors = [
   'http://kisrow.frontend.nomoredomains.rocks',
   'https://kisrow.frontend.nomoredomains.rocks',
   'http://localhost:3000',
+  'http://192.168.1.2:3000',
 ];
 module.exports = (req, res, next) => {
   const { origin } = req.headers;
@@ -13,7 +14,6 @@ module.exports = (req, res, next) => {
   // Проверим, есть ли источник запроса среди разрешённых
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
-
     // С опцией credentials токен передает браузер, который сохраняется в куках
     res.header('Access-Control-Allow-Credentials', true);
   }

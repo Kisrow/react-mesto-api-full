@@ -13,16 +13,20 @@
 
   getUserInfo() {
     return fetch(`${this._url}/users/me`, {
+      credentials: 'include',
       headers: {
-        authorization: this._userToken
+        // authorization: this._userToken
+        'Content-Type': 'application/json'
       }
     })
     .then(this._chekResponse)  }
 
   getCards() {
     return fetch(`${this._url}/cards`, {
+      credentials: 'include',
       headers: {
-        authorization: this._userToken
+        // authorization: this._userToken
+        'Content-Type': 'application/json'
       }
     })
     .then(this._chekResponse)
@@ -31,8 +35,9 @@
   patchEditProfileInformation(inputValues) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
-        authorization: this._userToken,
+        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -47,6 +52,7 @@
   postNewCard(inputValues) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         authorization: this._userToken,
         'Content-Type': 'application/json'
@@ -62,6 +68,7 @@
   changeLikeCardStatus(idCard, isLiked) {
     return fetch(`${this._url}/cards/${idCard}/likes`, {
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
+      credentials: 'include',
       headers: {
         authorization: this._userToken,
         'Content-Type': 'application/json'
@@ -73,6 +80,7 @@
   deleteCard(idCard) {
     return fetch(`${this._url}/cards/${idCard}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         authorization: this._userToken,
         'Content-Type': 'application/json'
@@ -85,6 +93,7 @@
   patchAvatarProfile(inputValues) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         authorization: this._userToken,
         'Content-Type': 'application/json'
@@ -98,6 +107,8 @@
 }
 
 export const api = new Api({
+  // userToken: 'fe432b22-c689-4f0c-8db5-8b9370263f9d',
+  // url: 'https://nomoreparties.co/v1/cohort-50'
   userToken: 'fe432b22-c689-4f0c-8db5-8b9370263f9d',
-  url: 'https://nomoreparties.co/v1/cohort-50'
+  url: 'http://kisrow.backend.nomoredomains.rocks'
 });
