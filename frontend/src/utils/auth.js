@@ -1,5 +1,6 @@
 const config = {
-  baseUrl: 'https://auth.nomoreparties.co',
+  // baseUrl: 'https://auth.nomoreparties.co',
+  baseUrl: 'http://kisrow.backend.nomoredomains.rocks',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -38,10 +39,11 @@ export const authorize = (email, password) => {
 export const getContent = (token) => {
   return fetch(`${config.baseUrl}/users/me`, {
     method: 'GET',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      // 'Authorization': `Bearer ${token}`,
     }
   })
   .then(checkResponse);
