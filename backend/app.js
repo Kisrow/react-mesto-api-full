@@ -24,9 +24,11 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(requestLogger); // логгер запросов
 
-app.post('/signup', createUserValidation, createUser);
-app.post('/signin', loginValidation, login);
+// авторизация не требуется
+app.post('/sign-up', createUserValidation, createUser);
+app.post('/sign-in', loginValidation, login);
 
+// нужна авторизация
 app.use(auth);
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
