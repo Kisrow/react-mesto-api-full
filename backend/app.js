@@ -26,8 +26,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 app.use(requestLogger); // логгер запросов
 
 // авторизация не требуется
-app.post('/sign-up', createUserValidation, createUser);
-app.post('/sign-in', loginValidation, login);
+app.post('/signup', createUserValidation, createUser);
+app.post('/signin', loginValidation, login);
 
 // нужна авторизация
 app.use(auth);
