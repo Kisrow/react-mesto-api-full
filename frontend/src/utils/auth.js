@@ -17,6 +17,7 @@ const checkResponse = (res) => {
 export const register = (email, password) => {
   return fetch(`${config.baseUrl}/signup`, {
     method: 'POST',
+    credentials: 'include',
     headers: config.headers,
     body: JSON.stringify({
       email,
@@ -29,6 +30,7 @@ export const register = (email, password) => {
 export const authorize = (email, password) => {
   return fetch(`${config.baseUrl}/signin`, {
     method: 'POST',
+    credentials: 'include',
     headers: config.headers,
     body: JSON.stringify({email, password})
   })
