@@ -37,7 +37,7 @@ export const authorize = (email, password) => {
   .then(checkResponse);
 }
 
-export const getContent = (token) => {
+export const getContent = () => {
   return fetch(`${config.baseUrl}/users/me`, {
     method: 'GET',
     credentials: 'include',
