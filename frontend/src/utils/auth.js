@@ -1,7 +1,7 @@
-import BASE_URL from './constants';
+// import BASE_URL from './constants';
 
 const config = {
-  baseUrl: BASE_URL,
+  baseUrl: "http://kisrow.backend.nomoredomains.rocks",
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
