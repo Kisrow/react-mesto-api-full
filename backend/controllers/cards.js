@@ -63,7 +63,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(() => next(new NotFoundError(`карточки с id ${req.params.cardId} не существует`)))
-    .then(() => res.send({ message: 'лайк успешно удален' }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new IncorrectDateError('Переданы некорректные данные при снятии лайка'));
