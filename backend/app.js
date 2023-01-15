@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-const { login, createUser } = require('./controllers/users');
+const { login, createUser, logOut } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const {
   createUserValidation,
@@ -31,6 +31,7 @@ app.post('/signin', loginValidation, login);
 
 // нужна авторизация
 app.use(auth);
+app.post('/logout', logOut);
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 app.use('*', require('./routes/not-found-request'));

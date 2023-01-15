@@ -126,3 +126,7 @@ module.exports.getAuthorizedUser = (req, res, next) => {
     .then((user) => res.send(user))
     .catch(next);
 };
+
+module.exports.logOut = (req, res) => {
+  res.clearCookie('jwt').send({ message: 'выход из профиля' });
+};

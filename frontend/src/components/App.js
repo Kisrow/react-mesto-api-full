@@ -115,10 +115,17 @@ function App() {
   
   //! удалить куку
   function signOut() {
-    localStorage.removeItem('token');
-    history.push("/sign-in");
-    setUserEmail('');
-    setLoggedIn(false);
+    // localStorage.removeItem('token');
+    // history.push("/sign-in");
+    // setUserEmail('');
+    // setLoggedIn(false);
+    auth.logOut()
+      .then((res) => {
+        setLoggedIn(false);
+        setUserEmail('');
+        history.push("/sign-in");
+        console.log(res);
+      })
   }
 
   //эффект при мониторинии, запрашивает с серва инфу о пользователе и меняет сейт-переменную
