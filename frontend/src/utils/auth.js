@@ -1,7 +1,7 @@
-// import BASE_URL from './constants';
+import BASE_URL from './constants';
 
 const config = {
-  baseUrl: "http://kisrow.backend.nomoredomains.rocks",
+  baseUrl: BASE_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -45,7 +45,6 @@ export const getContent = () => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      // 'Authorization': `Bearer ${token}`,
     }
   })
   .then(checkResponse);

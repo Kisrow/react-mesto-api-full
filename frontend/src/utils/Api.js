@@ -1,4 +1,4 @@
-// import BASE_URL from "./constants";
+import BASE_URL from "./constants";
 
   class Api {
   constructor(config) {
@@ -101,5 +101,5 @@
 }
 
 export const api = new Api({
-  url: "http://kisrow.backend.nomoredomains.rocks"
+  url: BASE_URL
 });
