@@ -42,20 +42,28 @@ function App() {
 
   function onLogin(loginEmail, loginPassword) {
     auth.authorize(loginEmail, loginPassword)
-      .then(res => {
-        //проверка зарегистрирован ли такой пользователь
-        if(res.token) {
-          localStorage.setItem('token', res.token);
-          return res
-        }
-      })
-      .then(res => {
+      //   //! изменил всвязи с переходом на куки
+      // .then(res => {
+      //   //проверка зарегистрирован ли такой пользователь
+      //   if(res.token) {
+      //     localStorage.setItem('token', res.token);
+      //     return res
+      //   }
+      // })
+      // .then(res => {
+      //   if (res) {
+      //     setLoggedIn(true);
+      //     setUserEmail(loginEmail);
+      //     history.push("/main")
+      //   }
+      // })
+      .then((res => {
         if (res) {
           setLoggedIn(true);
-          setUserEmail(loginEmail);
+          setUserEmail(res.email);
           history.push("/main")
         }
-      })
+      }))
       .catch(err => console.log(err))
   }
 

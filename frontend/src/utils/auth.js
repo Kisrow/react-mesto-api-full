@@ -37,7 +37,6 @@ export const authorize = (email, password) => {
   .then(checkResponse);
 }
 
-//при использовании config.headers ломается авторизация
 export const getContent = (token) => {
   return fetch(`${config.baseUrl}/users/me`, {
     method: 'GET',
