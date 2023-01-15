@@ -61,7 +61,7 @@ function App() {
         if (res) {
           setLoggedIn(true);
           setUserEmail(res.email);
-          history.push("/main")
+          history.push("/main");
         }
       }))
       .catch(err => console.log(err))
@@ -87,18 +87,29 @@ function App() {
   }, [])
 
   function tokenCheck() {
-    const token = localStorage.getItem('token');
-    if(token) {
-      setLoggedIn(true);
-      auth.getContent(token)
-        .then(res => {
-          if(res) {
-            setUserEmail(res.data.email);
-            history.push("/main");
-          }
-        })
-        .catch(err => console.log(err));
-    }
+    // const token = localStorage.getItem('token');
+    // if(token) {
+    //   setLoggedIn(true);
+    //   auth.getContent(token)
+    //     .then(res => {
+    //       if(res) {
+    //         setUserEmail(res.data.email);
+    //         history.push("/main");
+    //       }
+    //     })
+    //     .catch(err => console.log(err));
+    // }
+    auth.getContent()
+      .then((res) => {
+        if (res) {
+          setLoggedIn(true);
+          setUserEmail(res.email);
+          history.push("/main");
+        } else {
+          setLoggedIn(false);
+        }
+      })
+      .catch(err => console.log(err));
   }
 
   function signOut() {
