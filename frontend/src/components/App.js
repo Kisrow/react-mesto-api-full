@@ -121,13 +121,15 @@ function App() {
 
   //эффект при мониторинии, запрашивает с серва инфу о пользователе и меняет сейт-переменную
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getCards()])
+    if (loggedIn) {
+      Promise.all([api.getUserInfo(), api.getCards()])
       .then (([userData, serverCards]) => {
         setCurrentUser(userData);
         setCards(serverCards);
       })
       .catch((err) => console.log(err))
-  }, [])
+    }
+  }, [loggedIn])
 
   //закрытие любого попапа
   function closeAllPopups() {
