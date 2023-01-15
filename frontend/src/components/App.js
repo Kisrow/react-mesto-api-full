@@ -104,6 +104,7 @@ function App() {
         if (res) {
           setLoggedIn(true);
           setUserEmail(res.email);
+          setCurrentUser(res);
           history.push("/main");
         } else {
           setLoggedIn(false);
@@ -111,7 +112,8 @@ function App() {
       })
       .catch(err => console.log(err));
   }
-
+  
+  //! удалить куку
   function signOut() {
     localStorage.removeItem('token');
     history.push("/sign-in");

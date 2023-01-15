@@ -15,6 +15,8 @@ function Card({
   const infoCurrentUserContext = useContext(CurrentUserContext);
 
   // Определяем, являемся ли мы владельцем текущей карточки
+  console.log(card.owner._id);
+  console.log(infoCurrentUserContext._id);
   const isOwn = card.owner._id === infoCurrentUserContext._id;
 
   // Создаём переменную, которую после зададим в `className` для кнопки удаления
