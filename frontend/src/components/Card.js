@@ -17,7 +17,7 @@ function Card({
   // Определяем, являемся ли мы владельцем текущей карточки
   console.log(card.owner._id);
   console.log(infoCurrentUserContext._id);
-  const isOwn = card.owner._id === infoCurrentUserContext._id;
+  const isOwn = card.owner === infoCurrentUserContext._id;
 
   // Создаём переменную, которую после зададим в `className` для кнопки удаления
   const cardDeleteButtonClassName = (`feed__element-trash ${isOwn ? 'feed__element-trash_visible' : 'feed__element-trash_hidden'}`);
