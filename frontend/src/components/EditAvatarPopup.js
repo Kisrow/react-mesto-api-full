@@ -21,8 +21,6 @@ function EditAvatarPopup({
       avatarRef.current.value = '';
     }
 
-    //!идей как сделать валидацию используя рефы не наблюдается
-
     return(
       <PopupWithForm
         name="change-avatar"

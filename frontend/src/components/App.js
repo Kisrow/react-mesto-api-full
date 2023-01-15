@@ -42,21 +42,6 @@ function App() {
 
   function onLogin(loginEmail, loginPassword) {
     auth.authorize(loginEmail, loginPassword)
-      //   //! изменил всвязи с переходом на куки
-      // .then(res => {
-      //   //проверка зарегистрирован ли такой пользователь
-      //   if(res.token) {
-      //     localStorage.setItem('token', res.token);
-      //     return res
-      //   }
-      // })
-      // .then(res => {
-      //   if (res) {
-      //     setLoggedIn(true);
-      //     setUserEmail(loginEmail);
-      //     history.push("/main")
-      //   }
-      // })
       .then((res => {
         if (res) {
           setLoggedIn(true);
@@ -87,18 +72,6 @@ function App() {
   }, [])
 
   function tokenCheck() {
-    // const token = localStorage.getItem('token');
-    // if(token) {
-    //   setLoggedIn(true);
-    //   auth.getContent(token)
-    //     .then(res => {
-    //       if(res) {
-    //         setUserEmail(res.data.email);
-    //         history.push("/main");
-    //       }
-    //     })
-    //     .catch(err => console.log(err));
-    // }
     auth.getContent()
       .then((res) => {
         if (res) {
@@ -113,18 +86,12 @@ function App() {
       .catch(err => console.log(err));
   }
   
-  //! удалить куку
   function signOut() {
-    // localStorage.removeItem('token');
-    // history.push("/sign-in");
-    // setUserEmail('');
-    // setLoggedIn(false);
     auth.logOut()
       .then((res) => {
         setLoggedIn(false);
         setUserEmail('');
         history.push("/sign-in");
-        console.log(res);
       })
   }
 
@@ -204,7 +171,6 @@ function App() {
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i === currentUser._id);
-    console.log(isLiked);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
