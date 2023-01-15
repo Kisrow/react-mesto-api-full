@@ -54,7 +54,7 @@
       method: 'POST',
       credentials: 'include',
       headers: {
-        authorization: this._userToken,
+        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -70,7 +70,7 @@
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
       credentials: 'include',
       headers: {
-        authorization: this._userToken,
+        // authorization: this._userToken,
         'Content-Type': 'application/json'
       }
     })
@@ -82,7 +82,7 @@
       method: 'DELETE',
       credentials: 'include',
       headers: {
-        authorization: this._userToken,
+        // authorization: this._userToken,
         'Content-Type': 'application/json'
       }
     })
@@ -95,7 +95,7 @@
       method: 'PATCH',
       credentials: 'include',
       headers: {
-        authorization: this._userToken,
+        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
