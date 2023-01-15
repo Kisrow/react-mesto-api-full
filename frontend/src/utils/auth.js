@@ -1,6 +1,7 @@
+import BASE_URL from "./constants";
+
 const config = {
-  // baseUrl: 'https://auth.nomoreparties.co',
-  baseUrl: 'http://kisrow.backend.nomoredomains.rocks',
+  baseUrl: BASE_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'

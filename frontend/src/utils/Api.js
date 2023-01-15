@@ -1,6 +1,7 @@
+import BASE_URL from "./constants";
+
   class Api {
   constructor(config) {
-    this._userToken = config.userToken;
     this._url = config.url;
   }
 
@@ -15,7 +16,6 @@
     return fetch(`${this._url}/users/me`, {
       credentials: 'include',
       headers: {
-        // authorization: this._userToken
         'Content-Type': 'application/json'
       }
     })
@@ -25,7 +25,6 @@
     return fetch(`${this._url}/cards`, {
       credentials: 'include',
       headers: {
-        // authorization: this._userToken
         'Content-Type': 'application/json'
       }
     })
@@ -37,7 +36,6 @@
       method: 'PATCH',
       credentials: 'include',
       headers: {
-        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -54,7 +52,6 @@
       method: 'POST',
       credentials: 'include',
       headers: {
-        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -70,7 +67,6 @@
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
       credentials: 'include',
       headers: {
-        // authorization: this._userToken,
         'Content-Type': 'application/json'
       }
     })
@@ -82,7 +78,6 @@
       method: 'DELETE',
       credentials: 'include',
       headers: {
-        // authorization: this._userToken,
         'Content-Type': 'application/json'
       }
     })
@@ -95,7 +90,6 @@
       method: 'PATCH',
       credentials: 'include',
       headers: {
-        // authorization: this._userToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -107,8 +101,5 @@
 }
 
 export const api = new Api({
-  // userToken: 'fe432b22-c689-4f0c-8db5-8b9370263f9d',
-  // url: 'https://nomoreparties.co/v1/cohort-50'
-  userToken: 'fe432b22-c689-4f0c-8db5-8b9370263f9d',
-  url: 'http://kisrow.backend.nomoredomains.rocks'
+  url: BASE_URL
 });
